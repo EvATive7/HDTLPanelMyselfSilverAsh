@@ -25,7 +25,7 @@ sp.spBone_setYDown(true)
 
 local _M = {}
 
-_M.create = function (p, modelConfig, root)
+_M.create = function(p, modelConfig, root)
     root = root or './'
     
     local M = {}
@@ -125,7 +125,9 @@ _M.create = function (p, modelConfig, root)
     M.spine_event = M.event_prefix .. 'spine.event'
 
     M.containsRec = ffi.new("HitTestRecorder")
-    local mouseHit = false
+    local firstdraw = true
+    local hittest = false
+    
     local dp = windowMan
 
     ---绘制
@@ -137,10 +139,15 @@ _M.create = function (p, modelConfig, root)
         sp.spSkeleton_updateWorldTransform(skeleton)
 
         sp.drawSkeleton(skeleton, p.pma)
-        if p.hittest and mouseHit == (sp.spSkeleton_containsPoint(skeleton, dp.mousePos().x, dp.mousePos().y, M.containsRec) ~= 1) then
-            mouseHit = not mouseHit
+
+        if p.hittest ~= hittest or firstdraw then
+            hittest = p.hittest
+            if p.hittest then
+                hit_collector.clearPass()
+            else
+                hit_collector.setPass()
+            end
         end
-        if mouseHit then hit_collector.hit() end
         
         if animationState.userData ~= ffi.NULL then
             local event = ffi.cast(eventRecorderAtomPointType, animationState.userData)
@@ -157,6 +164,7 @@ _M.create = function (p, modelConfig, root)
         end
 
         ev.trigger(M.after_draw)
+        firstdraw = false
     end
 
     ---取得一个附件，可用于在点击测试中测试鼠标是否在一个附件中
