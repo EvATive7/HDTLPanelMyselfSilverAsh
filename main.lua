@@ -325,7 +325,8 @@ log(hasSpecial);
 
     if hasSpecial then
         ev.on(window.before_draw, function()
-            if state == "idle" and math.random() * 180 < window.frameTime() then
+            --print(math.random() * 180,window.frameTime())
+            if state == "idle" and math.random() * 360 < window.frameTime() then
                 special = true
                 model.once("Special")
             end
