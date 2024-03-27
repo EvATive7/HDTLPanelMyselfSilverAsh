@@ -78,7 +78,7 @@ _M.create = function(p, modelConfig, root)
     M.scale = function(v)
         if v == nil then return scale end
         scale = v
-        skeleton.scaleX = scale
+        skeleton.scaleX = -0.5
         skeleton.scaleY = scale
         skeleton.x = modelConfig.x * scale
         skeleton.y = modelConfig.y * scale
