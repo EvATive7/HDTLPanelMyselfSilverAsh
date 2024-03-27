@@ -1,0 +1,17 @@
+{
+  "idle": [
+    "assets/audios/idle1.ogg",
+    "assets/audios/idle2.ogg",
+    "assets/audios/idle3.ogg",
+    "assets/audios/idle4.ogg",
+    "assets/audios/idle5.ogg",
+    "assets/audios/idle6.ogg"
+  ],
+  "interact": [
+    "assets/audios/interact1.ogg",
+    "assets/audios/interact2.ogg"
+  ],
+  "launch": [
+    "assets/audios/launch.ogg"
+  ]
+}

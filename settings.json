@@ -1,0 +1,22 @@
+{
+    "idleAudioProb": 60,
+    "walk": false,
+    "stopDistance": 200,
+    "scale": 50,
+    "drop": true,
+    "transparency": 255,
+    "ground": 1033,
+    "idleMotion": 2,
+    "launchAudio": false,
+    "window": {
+        "y": 323,
+        "x": 1050,
+        "drawFps": false,
+        "fps": 0
+    },
+    "hittest": true,
+    "autoHide": true,
+    "startDistance": 500,
+    "drag": false,
+    "volume": 0
+}
